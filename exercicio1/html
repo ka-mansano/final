@@ -1,0 +1,20 @@
+import { LightningElement } from 'lwc';
+
+export default class Exerciciodocao extends LightningElement {
+  peso;
+  altura;
+  imc;
+
+  pesoOnChange(event){
+    this.peso = event.detail.value;
+  }
+
+  alturaOnChange(event){
+    this.altura = event.detail.value;
+  }
+
+  calculo(event){
+    this.imc = this.peso / (this.altura * this.altura);
+  }
+
+}
