@@ -1,0 +1,50 @@
+import { LightningElement } from 'lwc';
+
+export default class Fim1 extends LightningElement {
+    n1;
+    n2;
+    result;
+    msgErro;
+
+    valor1(event){
+        this.n1 = '';
+    }
+
+    valor2(event){
+        this.n2 = '';
+    }
+
+    handleSoma(){
+        this.msgErro = '';
+        this.result = parseInt(this.n1) + parseInt(this.n2);
+    }
+
+    handleSub(){
+        this.msgErro = '';
+        this.result = parseInt(this.n1) - parseInt(this.n2);
+    }
+
+    handleMult(){
+        this.msgErro = '';
+        this.result = parseInt(this.n1) * parseInt(this.n2);
+    }
+
+    handleDiv(){
+        this.msgErro = '';
+        if(parseInt(this.n2) === 0){
+            this.msgErro = 'Não é possível dividir por zero!';
+        }
+        this.result = parseInt(this.n1) / parseInt(this.n2);
+    }
+
+    handleLimpar(){
+        this.msgErro = '';
+        this.n1 = 0;
+        this.n2 = 0;
+        this.result = '';
+    }
+
+    handleResultado(){
+        this.result;
+    }
+}
