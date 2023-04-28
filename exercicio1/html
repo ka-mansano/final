@@ -1,20 +1,20 @@
-import { LightningElement } from 'lwc';
-
-export default class Exerciciodocao extends LightningElement {
-  peso;
-  altura;
-  imc;
-
-  pesoOnChange(event){
-    this.peso = event.detail.value;
-  }
-
-  alturaOnChange(event){
-    this.altura = event.detail.value;
-  }
-
-  calculo(event){
-    this.imc = this.peso / (this.altura * this.altura);
-  }
-
-}
+<template>
+    <lightning-card title="Calculadora">
+        <div class="slds-m-around_medium">
+            <lightning-input label="Número 1: " type="number" value="n1" onchange={valor1}></lightning-input>
+            <lightning-input label="Número 2: " type="number" value="n2" onchange={valor2}></lightning-input>
+            <p>Resultado: {result}</p>
+            <div class="slds-grid slds-wrap slds-grid_align-center">
+                <lightning-button variant="brand" label="+" onclick={handleSoma}></lightning-button>
+                <lightning-button variant="brand" label="-" onclick={handleSub}></lightning-button>
+                <lightning-button variant="brand" label="*" onclick={handleMult}></lightning-button>
+                <lightning-button variant="brand" label="/" onclick={handleDiv}></lightning-button>
+                <lightning-button variant="brand" label="=" onclick={handleResultado}></lightning-button>
+                <lightning-button variant="neutral" label="Limpar" onclick={handleLimpar}></lightning-button>
+            </div>
+            <template if:true={msgErro}>
+                <p>{msgErro}</p>
+            </template>
+        </div>
+    </lightning-card>
+</template>
